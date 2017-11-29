@@ -1,0 +1,69 @@
+[System]
+Name='S-R25-Trig'
+Type='sugeno'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=25
+AndMethod='prod'
+OrMethod='probor'
+ImpMethod='prod'
+AggMethod='sum'
+DefuzzMethod='wtaver'
+
+[Input1]
+Name='error'
+Range=[-1 1]
+NumMFs=5
+MF1='N':'trimf',[-1.782 -1.028 -0.4721]
+MF2='Z':'trimf',[-0.5 1.388e-17 0.5]
+MF3='P':'trimf',[0.473 1.027 1.773]
+MF4='NZ':'trimf',[-1.009 -0.5009 0.0009]
+MF5='ZP':'trimf',[0 0.5 1]
+
+[Input2]
+Name='deltaerror'
+Range=[-1 1]
+NumMFs=5
+MF1='N':'trimf',[-1.782 -1.028 -0.4721]
+MF2='ZP':'trimf',[0 0.5 1]
+MF3='P':'trimf',[0.473 1.027 1.773]
+MF4='Z':'trimf',[-0.5 1.388e-17 0.5]
+MF5='NZ':'trimf',[-1.009 -0.5009 0.0009]
+
+[Output1]
+Name='output1'
+Range=[0 1]
+NumMFs=5
+MF1='N':'constant',[-1]
+MF2='Z':'constant',[0]
+MF3='ZP':'constant',[0.5]
+MF4='NZ':'constant',[-0.5]
+MF5='P':'constant',[1]
+
+[Rules]
+1 1, 1 (1) : 1
+4 1, 1 (1) : 1
+2 1, 1 (1) : 1
+5 1, 4 (1) : 1
+3 1, 2 (1) : 1
+1 5, 1 (1) : 1
+4 5, 1 (1) : 1
+2 5, 4 (1) : 1
+5 5, 2 (1) : 1
+3 5, 3 (1) : 1
+1 4, 1 (1) : 1
+4 4, 4 (1) : 1
+2 4, 2 (1) : 1
+5 4, 3 (1) : 1
+3 4, 5 (1) : 1
+1 2, 4 (1) : 1
+4 2, 2 (1) : 1
+2 2, 3 (1) : 1
+5 2, 5 (1) : 1
+3 2, 5 (1) : 1
+1 3, 2 (1) : 1
+4 3, 3 (1) : 1
+2 3, 5 (1) : 1
+5 3, 5 (1) : 1
+3 3, 5 (1) : 1
